@@ -33,16 +33,19 @@ public abstract class Conta implements IConta {
     public void sacar(double valor) {
         if (autenticar() && valor <= saldo) {
             saldo -= valor;
-            System.out.println();
+            System.out.println(String.format("%s Sacou R$ %.2f reais.", cliente.getNome(), valor));
+            System.out.println(" ");
         } else {
             System.out.println("Não há saldo!");
+            System.out.println(" ");
         }
     }
 
     @Override
     public void depositar(double valor) {
         saldo += valor;
-        System.out.println();
+        System.out.println(String.format("%s recebeu valor em conta!", cliente.getNome()));
+        System.out.println(" ");
     }
 
     @Override
@@ -50,8 +53,11 @@ public abstract class Conta implements IConta {
         if (autenticar() && valor <= saldo) {
             saldo -= valor;
             contaDestino.depositar(valor);
+            System.out.println(String.format("%s transferiu R$ %.2f para %s", cliente.getNome(), valor, contaDestino));
+            System.out.println(" ");
         } else  {
             System.out.println("Não há saldo!");
+            System.out.println(" ");
         }
     }
 
@@ -60,6 +66,7 @@ public abstract class Conta implements IConta {
         System.out.println(String.format("Agência %d", this.agencia));
         System.out.println(String.format("Conta %d", this.numero));
         System.out.println(String.format("Saldo R$ %.2f", this.saldo));
+        System.out.println(" ");
     }
 
     // Metodo para simular uma autenticação por senha numérica

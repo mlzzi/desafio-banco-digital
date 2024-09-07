@@ -7,16 +7,16 @@ public class Main {
         Conta contaCorrenteJoao = new ContaCorrente(joao);
         Conta contaDolarJoao = new ContaEmDolar(joao);
 
-        Conta contaCorrenteMaria = new ContaCorrente(maria);
-        Conta contaPoupancaMaria = new ContaPoupanca(maria);
+        ContaCorrente contaCorrenteMaria = new ContaCorrente(maria);
+        ContaPoupanca contaPoupancaMaria = new ContaPoupanca(maria);
 
 //        contaCorrenteJoao.imprimirExtrato();
 //        contaDolarJoao.imprimirExtrato();
 
-        contaCorrenteMaria.imprimirExtrato();
+//        contaCorrenteMaria.imprimirExtrato();
 //        contaPoupancaMaria.imprimirExtrato();
 
-        contaCorrenteMaria.depositar(250);
+//        contaCorrenteMaria.depositar(250);
 //        contaCorrenteJoao.depositar(1000);
 
 //        contaCorrenteJoao.imprimirExtrato();
@@ -42,8 +42,19 @@ public class Main {
 //        contaCorrenteMaria.imprimirExtrato();
 //        contaPoupancaMaria.imprimirExtrato();
 
-        contaCorrenteMaria.sacar(1500);
+//        contaCorrenteMaria.sacar(1500);
+//        contaCorrenteMaria.imprimirExtrato();
+//        contaCorrenteMaria.transferir(600, contaCorrenteJoao);
+//        contaCorrenteMaria.transferir(100, contaPoupancaMaria);
+//
+//        contaPoupancaMaria.imprimirExtrato();
+//        contaPoupancaMaria.render();
+
+        contaCorrenteMaria.emprestimo(10000);
         contaCorrenteMaria.imprimirExtrato();
-        contaCorrenteMaria.transferir(600, contaCorrenteJoao);
+        contaCorrenteMaria.pagarParcelaEmprestimo();
+        contaCorrenteMaria.imprimirExtrato();
+        contaCorrenteMaria.pagarParcelaEmprestimo();
+        contaCorrenteMaria.imprimirExtrato();
     }
 }

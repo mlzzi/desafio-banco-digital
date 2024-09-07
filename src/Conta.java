@@ -62,6 +62,7 @@ public abstract class Conta implements IConta {
         System.out.println(String.format("Saldo R$ %.2f", this.saldo));
     }
 
+    // Metodo para simular uma autenticação por senha numérica
     public boolean autenticar() {
         Scanner scanner = new Scanner(System.in);
         int tentativas = 3;

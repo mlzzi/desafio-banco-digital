@@ -1,15 +1,16 @@
+//Conta para simular conta em dolar, com métodos para simular conversão para dólar e vice-versa
+
 public class ContaEmDolar extends Conta {
 
-    private static double cotacao = 5.60;
+    private static final double COTACAO = 5.60; // Cotação do dólar em real
 
     public ContaEmDolar(Cliente cliente) {
         super(cliente);
     }
 
-
     @Override
     public void depositar(double valor) {
-        super.depositar(valor / cotacao);
+        super.depositar(valor / COTACAO);
     }
 
     @Override
@@ -17,7 +18,7 @@ public class ContaEmDolar extends Conta {
         if (contaDestino instanceof ContaEmDolar) {
             super.transferir(valor, contaDestino);
         } else if (contaDestino instanceof ContaCorrente || contaDestino instanceof ContaPoupanca) {
-            double valorConvertido = valor * cotacao;
+            double valorConvertido = valor * COTACAO;
             if (super.autenticar()) {
                 contaDestino.depositar(valorConvertido);
                 this.saldo -= valor;
@@ -28,7 +29,7 @@ public class ContaEmDolar extends Conta {
 
     @Override
     public void sacar(double valor) {
-        super.sacar(valor * cotacao);
+        super.sacar(valor * COTACAO);
     }
 
     @Override
